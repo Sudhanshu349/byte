@@ -1,0 +1,114 @@
+<style>
+  /* Navbar */
+  nav {
+    background: #fff !important;
+    transition: all 0.3s ease;
+  }
+  nav.sticky {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  }
+
+  /* 🔍 Search Bar Container */
+  .search-container {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 40px;
+    padding: 0.3rem 0.6rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    width: 260px;
+    margin: 0 auto; /* Center align */
+  }
+  .search-container:focus-within {
+    width: 420px; /* Expand when focused */
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+
+  /* Input */
+  .search-inp {
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    flex: 1;
+  }
+
+  /* Button */
+  .search-btn {
+    background-color: #fe424d;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .search-btn:hover {
+    background-color: #e63946;
+  }
+  .search-btn i {
+    font-size: 1rem;
+  }
+</style>
+
+<nav class="navbar navbar-expand-md border-bottom sticky-top" id="mainNav">
+  <div class="container-fluid">
+    <!-- Brand Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Content -->
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      
+      <!-- 🔍 Center Search Bar -->
+      <form class="search-container" role="search" action="/listings" method="get">
+        <input 
+          class="search-inp"
+          type="search" 
+          name="search"
+          placeholder="Search destinations"
+          value="<%= typeof search !== 'undefined' ? search : '' %>"
+        />
+        <button class="search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+
+      <!-- Right Side Links -->
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        <% if (!currUser) { %>
+          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Log in</b></a>
+        <% } %>
+        <% if (currUser) { %>
+          <a class="nav-link" href="/logout"><b>Log out</b></a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Add sticky shadow on scroll
+  window.addEventListener("scroll", function () {
+    const nav = document.getElementById("mainNav");
+    if (window.scrollY > 10) {
+      nav.classList.add("sticky");
+    } else {
+      nav.classList.remove("sticky");
+    }
+  });
+</script>

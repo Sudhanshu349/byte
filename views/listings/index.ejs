@@ -1,0 +1,306 @@
+<% layout("/layouts/boilerplate") %> 
+
+<style>
+  /* 🌟 Filters Styling */
+  #filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 1rem 0;
+    width: 100%;
+    align-items: center;
+    scrollbar-width: none;
+    animation: slideIn 1s ease-out forwards;
+  }
+  #filters::-webkit-scrollbar {
+    display: none;
+  }
+  .filter {
+    text-align: center;
+    margin-right: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .filter:nth-child(1) { animation-delay: 0.2s; }
+  .filter:nth-child(2) { animation-delay: 0.3s; }
+  .filter:nth-child(3) { animation-delay: 0.4s; }
+  .filter:nth-child(4) { animation-delay: 0.5s; }
+  .filter:nth-child(5) { animation-delay: 0.6s; }
+  .filter:nth-child(6) { animation-delay: 0.7s; }
+  .filter:nth-child(7) { animation-delay: 0.8s; }
+  .filter:nth-child(8) { animation-delay: 0.9s; }
+  .filter:nth-child(9) { animation-delay: 1s; }
+  .filter:nth-child(10) { animation-delay: 1.1s; }
+  .filter:nth-child(11) { animation-delay: 1.2s; }
+
+  .filter:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  .filter i {
+    font-size: 1.5rem;
+    background: #f0f0f0;
+    padding: 0.8rem;
+    border-radius: 50%;
+    margin-bottom: 0.4rem;
+    transition: background 0.3s;
+  }
+  .filter:hover i {
+    background: #0077ff;
+    color: white;
+  }
+  .filter p {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* 🌟 Tax Toggle */
+  .tax-toggle {
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    height: 3rem;
+    padding: 0.6rem 1rem;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    opacity: 0;
+    transform: translateX(30px);
+    animation: fadeLeft 1s ease forwards 1.3s;
+  }
+  .tax-info {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-size: 0.85rem;
+    color: #888;
+  }
+  .tax-info.show {
+    opacity: 1;
+  }
+
+  /* 🌟 Listings Grid */
+  .listing-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .listing-card {
+    margin: 1rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    background: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .listing-card:nth-child(1) { animation-delay: 0.2s; }
+  .listing-card:nth-child(2) { animation-delay: 0.4s; }
+  .listing-card:nth-child(3) { animation-delay: 0.6s; }
+  .listing-card:nth-child(4) { animation-delay: 0.8s; }
+  .listing-card:nth-child(5) { animation-delay: 1s; }
+
+  .listing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+  }
+
+  .listing-card img {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .listing-card:hover img {
+    transform: scale(1.08);
+  }
+
+  /* Overlay effect */
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0));
+    color: white;
+  }
+
+  .card-text b {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-text i,
+  .card-text span {
+    font-size: 0.9rem;
+    opacity: 0.9;
+  }
+
+  /* Wishlist (Heart Button) */
+  .wishlist-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    padding: 0.6rem;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  .wishlist-btn:hover {
+    transform: scale(1.2);
+    background: #ff4d6d;
+    color: white;
+  }
+
+  .wishlist-btn i {
+    font-size: 1.2rem;
+    color: #555;
+    transition: color 0.3s;
+  }
+
+  .wishlist-btn.active {
+    background: #ff4d6d;
+  }
+  .wishlist-btn.active i {
+    color: white;
+  }
+
+  /* 🌟 No Results */
+  .no-results {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    color: #555;
+    animation: fadeIn 1s ease;
+  }
+
+  /* 🌟 Animations */
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes fadeLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+</style>
+
+<!-- 🔑 Filters Section -->
+<div id="filters">
+  <div class="filter"><i class="fa-solid fa-fire"></i><p>Trending</p></div>
+  <div class="filter"><i class="fa-solid fa-bed"></i><p>Rooms</p></div>
+  <div class="filter"><i class="fa-solid fa-mountain-city"></i><p>Iconic Cities</p></div>
+  <div class="filter"><i class="fa-solid fa-mountain"></i><p>Mountains</p></div>
+  <div class="filter"><i class="fa-brands fa-fort-awesome"></i><p>Castles</p></div>
+  <div class="filter"><i class="fa-solid fa-person-swimming"></i><p>Pools</p></div>
+  <div class="filter"><i class="fa-solid fa-campground"></i><p>Camping</p></div>
+  <div class="filter"><i class="fa-solid fa-cow"></i><p>Farms</p></div>
+  <div class="filter"><i class="fa-solid fa-snowflake"></i><p>Arctic</p></div>
+  <div class="filter"><i class="fa-solid fa-igloo"></i><p>Domes</p></div>
+  <div class="filter"><i class="fa-solid fa-ship"></i><p>Boats</p></div>
+
+  <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+      <label class="form-check-label" for="switchCheckDefault">Show total after taxes</label>
+    </div>
+  </div>
+</div>
+
+<!-- 🔑 Listings / Search Results -->
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+  <% if(allListings.length === 0){ %>
+    <p class="no-results">No listings found for "<%= search %>"</p>
+  <% } else { %>
+    <% for(let listing of allListings){ %>
+      <a href="/listings/<%= listing._id %>" class="listing-link">
+        <div class="card listing-card">
+          <img src="<%= listing.image %>" class="card-img-top" alt="listing_image">
+
+          <!-- Wishlist Button -->
+          <div class="wishlist-btn">
+            <i class="fa-regular fa-heart"></i>
+          </div>
+
+          <div class="card-body">
+            <p class="card-text">
+              <b><%= listing.title %></b>
+              <span class="price" data-base-price="<%= listing.price %>">
+                &#8377;<%= listing.price.toLocaleString("en-IN") %> / night
+              </span>
+              <i class="tax-info">&nbsp;</i>
+            </p>
+          </div>
+          
+        </div>
+      </a>
+    <% } %>
+  <% } %>
+</div>
+
+<script>
+  // 🌟 Tax Toggle
+  let taxSwitch = document.getElementById("switchCheckDefault");
+  let prices = document.querySelectorAll(".price");
+  let taxInfos = document.querySelectorAll(".tax-info");
+
+  taxSwitch.addEventListener("change", () => {
+    prices.forEach((priceEl, i) => {
+      let basePrice = parseFloat(priceEl.dataset.basePrice);
+
+      if (taxSwitch.checked) {
+        // Show price with GST
+        let gstPrice = Math.round(basePrice * 1.18);
+        priceEl.innerHTML = `&#8377;${gstPrice.toLocaleString("en-IN")} / night`;
+        taxInfos[i].style.display = "none";
+      } else {
+        // Show base price + GST label
+        priceEl.innerHTML = `&#8377;${basePrice.toLocaleString("en-IN")} / night`;
+        taxInfos[i].style.display = "inline";
+      }
+    });
+  });
+
+  // 🌟 Wishlist Toggle
+  document.querySelectorAll(".wishlist-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault(); // prevent navigating to listing
+      btn.classList.toggle("active");
+
+      let icon = btn.querySelector("i");
+      if (icon.classList.contains("fa-regular")) {
+        icon.classList.remove("fa-regular");
+        icon.classList.add("fa-solid");
+      } else {
+        icon.classList.remove("fa-solid");
+        icon.classList.add("fa-regular");
+      }
+    });
+  });
+</script>
+
