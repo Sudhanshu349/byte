@@ -16,7 +16,6 @@ const validateListing = (req, res, next) => {
     }
 };
 
-// ✅ Index Route with Search
 router.get("/", wrapAsync(async (req, res) => {
     const search = req.query.search || ""; 
     let query = {};
@@ -33,6 +32,7 @@ router.get("/", wrapAsync(async (req, res) => {
 router.get("/new", isLoggedIn, (req, res) => {
     res.render("listings/new.ejs");
 });
+
 
 // Show Route
 router.get("/:id", wrapAsync(async (req, res) => {

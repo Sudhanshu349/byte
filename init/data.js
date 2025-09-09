@@ -2,120 +2,120 @@ const sampleListings =[
   {
     title: "Banff National Park",
     description: "Scenic national park with mountains, lakes, and wildlife.",
-    image: "https://images.unsplash.com/photo-1520962922320-2038d02bf06f?auto=format&fit=crop&w=800&q=60",
-    price: 20,
+    image: "https://www.thoughtco.com/thmb/P0ph0xL8ipQ74MEwhHW1vNRKum0=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/ottawa-downtown-lge-56a0e5845f9b58eba4b4f44a.jpg",
+    price: 2000,
     location: "Alberta",
     country: "Canada"
   },
   {
     title: "Yosemite National Park",
     description: "Famous for giant sequoia trees and stunning waterfalls.",
-    image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=60",
-    price: 25,
+    image: "https://i.natgeofe.com/n/f14f6c30-8d11-4e33-a5e9-05f1b50bdde3/yosemite-national-park-california.jpg",
+    price: 2500,
     location: "California",
     country: "USA"
   },
   {
     title: "Great Barrier Reef",
     description: "World's largest coral reef system with marine biodiversity.",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60",
-    price: 30,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqgoaY5dubp6gP1vLAivq2pt5jzGb6N3HFiA&s",
+    price: 3000,
     location: "Queensland",
     country: "Australia"
   },
   {
     title: "Machu Picchu",
     description: "Historic Incan city in the Andes Mountains.",
-    image: "https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?auto=format&fit=crop&w=800&q=60",
-    price: 45,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Machu_Picchu%2C_Peru.jpg/1280px-Machu_Picchu%2C_Peru.jpg",
+    price: 4500,
     location: "Cusco",
     country: "Peru"
   },
   {
     title: "Santorini",
     description: "Beautiful Greek island known for white buildings and blue domes.",
-    image: "https://images.unsplash.com/photo-1501436513142-5b53c6e8d3e1?auto=format&fit=crop&w=800&q=60",
-    price: 60,
+    image: "https://media.tacdn.com/media/attractions-splice-spp-674x446/0b/f6/2d/d1.jpg",
+    price: 6000,
     location: "Cyclades",
     country: "Greece"
   },
   {
     title: "Tokyo City View",
     description: "Modern city with skyscrapers and traditional temples.",
-    image: "https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=800&q=60",
-    price: 80,
+    image: "https://cdn.cheapoguides.com/wp-content/uploads/sites/2/2023/09/roppongi-tower-hills-tokyo-city-view-GettyImages-1340637405-770x514.jpg",
+    price: 8000,
     location: "Tokyo",
     country: "Japan"
   },
   {
     title: "Sahara Desert Camp",
     description: "Experience stargazing and camel rides in the vast desert.",
-    image: "https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=800&q=60",
-    price: 35,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNDT75T7ZNgrgC-3BmHz9quQzgS0W1lL4-IA&s",
+    price: 3500,
     location: "Merzouga",
     country: "Morocco"
   },
   {
     title: "Swiss Alps Chalet",
     description: "Cozy stay with panoramic mountain views.",
-    image: "https://images.unsplash.com/photo-1607082349560-2037b2c6b405?auto=format&fit=crop&w=800&q=60",
-    price: 120,
+    image: "https://images.squarespace-cdn.com/content/v1/5ff9bd78fcd25633938f5fd5/1702934026417-YHEXOPKD0BA6VI73YNL2/1-Chalet-evening-lit-up-looking-towards-Tasch-copy.jpg",
+    price: 12000,
     location: "Zermatt",
     country: "Switzerland"
   },
   {
     title: "Petra Ruins",
     description: "Ancient archaeological site carved into red sandstone cliffs.",
-    image: "https://images.unsplash.com/photo-1570785160838-14e9f70f37f4?auto=format&fit=crop&w=800&q=60",
-    price: 40,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvq8xQklCgz_P6O89bHTCtfQRtmssB0fAlgQ&s",
+    price: 4000,
     location: "Ma'an",
     country: "Jordan"
   },
   {
     title: "Bali Beach Resort",
     description: "Relaxing beachfront stay with tropical vibes.",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=60",
-    price: 75,
+    image: "https://media-cdn.tripadvisor.com/media/photo-s/18/a8/02/f4/anantara-uluwatu-bali.jpg",
+    price: 7500,
     location: "Bali",
     country: "Indonesia"
   },
   {
     title: "Dubai Skyscraper View",
     description: "Luxury high-rise stay with city skyline views.",
-    image: "https://images.unsplash.com/photo-1603791440384-56cd371ee9a7?auto=format&fit=crop&w=800&q=60",
-    price: 150,
+    image: "https://travelwithkat.com/wp-content/uploads/2015/03/DSC5977_tonemapped-1620-x-1080-1080x675.jpg",
+    price: 15000,
     location: "Dubai",
     country: "UAE"
   },
   {
     title: "Icelandic Hot Springs",
     description: "Scenic natural thermal pools with icy backdrops.",
-    image: "https://images.unsplash.com/photo-1549887534-3d08f6e3b63e?auto=format&fit=crop&w=800&q=60",
-    price: 55,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsi3N-30bQmsc-xNXeX8H0wEu1WUphUPZ7-A&s",
+    price: 5500,
     location: "Reykjavík",
     country: "Iceland"
   },
   {
     title: "Paris Eiffel View",
     description: "Romantic city stay near the Eiffel Tower.",
-    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=800&q=60",
-    price: 100,
+    image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/22/ac/72/c1/caption.jpg?w=1200&h=-1&s=1&cx=629&cy=354&chk=v1_67cd54ded702cb5ace26",
+    price: 10000,
     location: "Paris",
     country: "France"
   },
   {
     title: "Cinque Terre Stay",
     description: "Colorful seaside villages with cliffside views.",
-    image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=60",
-    price: 85,
+    image: "https://www.thehotelguru.com/_images/d8/73/d873dd039574d6f039251416dc02bfbe/s1180x560.jpg",
+    price: 8500,
     location: "Liguria",
     country: "Italy"
   },
   {
     title: "Amazon Rainforest Lodge",
     description: "Eco-stay deep in the jungle with wildlife tours.",
-    image: "https://images.unsplash.com/photo-1583525163665-734f6de6c6c5?auto=format&fit=crop&w=800&q=60",
-    price: 50,
+    image: "https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/v1622488543/shutterstock_1389268868-lodges-manausjpg1120/shutterstock_1389268868-lodges-manausjpg1120.jpg",
+    price: 5000,
     location: "Manaus",
     country: "Brazil"
   },

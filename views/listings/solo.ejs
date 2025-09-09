@@ -1,0 +1,72 @@
+<% layout("/layouts/boilerplate") %>
+<div class="container my-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-4">
+          <div class="card-body p-4">
+            <h2 class="text-center text-primary mb-3">Solo Travel Planner ✈️</h2>
+            <p class="text-muted text-center mb-4">Plan your next solo adventure</p>
+  
+            <form action="/plan-trip" method="POST">
+              <!-- Full Name -->
+              <div class="mb-3">
+                <label for="name" class="form-label fw-semibold">Full Name</label>
+                <input type="text" class="form-control rounded-3" id="name" name="name" placeholder="Enter your name" required>
+              </div>
+  
+              <!-- Destination -->
+              <div class="mb-3">
+                <label for="destination" class="form-label fw-semibold">Destination</label>
+                <input type="text" class="form-control rounded-3" id="destination" name="destination" placeholder="Where do you want to go?" required>
+              </div>
+  
+              <!-- Travel Date -->
+              <div class="mb-3">
+                <label for="date" class="form-label fw-semibold">Travel Date</label>
+                <input type="date" class="form-control rounded-3" id="date" name="date" required>
+              </div>
+  
+              <!-- Duration -->
+              <div class="mb-3">
+                <label for="duration" class="form-label fw-semibold">Duration (days)</label>
+                <input type="number" class="form-control rounded-3" id="duration" name="duration" min="1" placeholder="e.g. 7" required>
+              </div>
+  
+              <!-- Budget -->
+              <div class="mb-3">
+                <label for="budget" class="form-label fw-semibold">Budget (USD)</label>
+                <input type="number" class="form-control rounded-3" id="budget" name="budget" placeholder="e.g. 1000" required>
+              </div>
+  
+              <!-- Travel Style -->
+              <div class="mb-3">
+                <label for="style" class="form-label fw-semibold">Travel Style</label>
+                <select id="style" name="style" class="form-select rounded-3" required>
+                  <option value="">-- Select Style --</option>
+                  <option>Adventure</option>
+                  <option>Relaxation</option>
+                  <option>Cultural</option>
+                  <option>Nature</option>
+                  <option>Backpacking</option>
+                </select>
+              </div>
+  
+              <!-- Notes -->
+              <div class="mb-3">
+                <label for="notes" class="form-label fw-semibold">Notes</label>
+                <textarea id="notes" name="notes" class="form-control rounded-3" rows="3" placeholder="Anything special about your trip?"></textarea>
+              </div>
+  
+              <!-- Submit -->
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg rounded-3 shadow-sm">
+                  Plan My Trip 🌍
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
