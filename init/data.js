@@ -1,31 +1,27 @@
 const sampleListings =[
   {
-    title: "Banff National Park",
-    description: "Scenic national park with mountains, lakes, and wildlife.",
+    title: "John Cena",
+    description: "17X champ",
   },
   {
-    title: "Banff National Park",
-    description: "Scenic national park with mountains, lakes, and wildlife.",
+    title: "Randy Ortan",
+    description: "Apex pradator",
   },
   {
-    title: "Banff National Park",
-    description: "Scenic national park with mountains, lakes, and wildlife.",
+    title: "drew macentyer",
+    description: "current chanpion.",
   },
   {
-    title: "Banff National Park",
-    description: "Scenic national park with mountains, lakes, and wildlife.",
+    title: "Cody rodes",
+    description: "Current Face of wwe.",
   },
   {
-    title: "Banff National Park",
-    description: "Scenic national park with mountains, lakes, and wildlife.",
+    title: "CM Punk",
+    description: "World Champion",
   },
   {
-    title: "Banff National Park",
-    description: "Scenic national park with mountains, lakes, and wildlife.",
-  },
-  {
-    title: "Banff National Park",
-    description: "Scenic national park with mountains, lakes, and wildlife.",
+    title: "Jey USO",
+    description: "YEET.",
   },
 ]
 

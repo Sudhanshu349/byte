@@ -1,8 +1,54 @@
-<h3>All Listings</h3>
-<ul>
-  <% for(let listing of allListings) { %>
-      <a href="/listings/<%= listing._id %>">
-        <%= listing.title %>
-    </li>
-  <% } %>
-</ul>
+<style>
+  .listings-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+
+  .listings-container h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+  }
+
+  .listings-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .listings-list li {
+    background: #f9f9f9;
+    margin-bottom: 0.8rem;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .listings-list li:hover {
+    background: #eef4ff;
+    transform: translateX(5px);
+  }
+
+  .listings-list a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    display: block;
+  }
+</style>
+
+<div class="listings-container">
+  <h3>All Listings</h3>
+  <ul class="listings-list">
+    <% for(let listing of allListings) { %>
+      <li>
+        <a href="/listings/<%= listing._id %>">
+          <%= listing.title %>
+          <br>
+          <%= listing.description %>
+        </a>
+      </li>
+    <% } %>
+  </ul>
+</div>
